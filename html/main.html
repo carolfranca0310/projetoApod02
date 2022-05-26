@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APOD: Astronomy</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../javascript/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="botaoHome">
+            <button type="button"><a href="../index.html">Home</a></button>
+        </div>
+        <div class="redes-sociais">
+            <a href="https://www.linkedin.com/in/caroline-ara%C3%BAjo-de-fran%C3%A7a-a59a14227/"><img src="../imagens/linkedin.png" alt="logotipo do linkedin" width="30px"></a>
+            <a href="https://github.com/carolfranca0310"><img src="../imagens/github.png" alt="logotipo do github" width="35px"></a>
+        </div>
+    </header>
+    <div class="container">
+        <p >Selecione uma data </p>
+        <input type="date" id="data">
+        <input type="submit" value="enviar" id="enviar">
+
+        <br />
+
+        <div id="img"></div>
+    </div>
+</body>
+
+<script>
+    $(document).on('click', '#enviar', function () {
+        let data = $("#data").val();
+        ChamadaAPI(data);
+    });
+
+    function ProcessarHTML(resposta) {
+        console.log(resposta);
+        $("#img").html('<img src="' + resposta.url + '"><p>' + resposta.explanation + '</p>');
+    }
+
+
+</script>
+</html>
